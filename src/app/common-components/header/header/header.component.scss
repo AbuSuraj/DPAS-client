@@ -41,9 +41,21 @@
       .user-profile {
         display: flex;
         align-items: center;
-  
+        .user-title{
+            display: flex;
+            flex-direction: column;
+            margin-right: 10px;
+        }
         .user-name {
-          margin-right: 10px;
+            font-family: Inter;
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 22px;
+            letter-spacing: 0em;
+            text-align: right;
+
+ 
+
         }
   
         .user-menu {
