@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { ProxyService } from 'src/app/services/services-proxy/proxy.service';
+import { AuthenticationService } from 'src/app/services/authentication/authentication.service';
 
 
 @Component({
@@ -22,7 +23,7 @@ export class LoginComponent implements OnInit {
     { label: 'Vistor', value: 'Vistor' },
   ];
   isDropdownOpen: boolean = false;
-  constructor(private formBuilder: FormBuilder, private elementRef: ElementRef, private service: ProxyService, private toastr: ToastrService, private router: Router) {}
+  constructor(private formBuilder: FormBuilder, private elementRef: ElementRef, private service: ProxyService, private toastr: ToastrService, private router: Router, private authService: AuthenticationService) {}
 
   ngOnInit() {
     this.signInForm = this.formBuilder.group({
@@ -55,7 +56,8 @@ export class LoginComponent implements OnInit {
       const {selectedOption, userId, password} = this.signInForm.value
        
       this.service.login(userId, password).subscribe((res)=>{
-        console.log('login successfull', res);
+        // console.log('login successfull', res);
+        this.authService.setLoggedIn(true);
         this.toastr.success('Login successful', 'Success');
         this.router.navigate(['']);
       },
