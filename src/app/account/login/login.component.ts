@@ -1,9 +1,9 @@
 import { Component, ElementRef, HostListener, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
  
-import { HttpService } from '../../services/service.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
+import { ProxyService } from 'src/app/services/services-proxy/proxy.service';
 
 
 @Component({
@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
     { label: 'Vistor', value: 'Vistor' },
   ];
   isDropdownOpen: boolean = false;
-  constructor(private formBuilder: FormBuilder, private elementRef: ElementRef, private service: HttpService, private toastr: ToastrService, private router: Router) {}
+  constructor(private formBuilder: FormBuilder, private elementRef: ElementRef, private service: ProxyService, private toastr: ToastrService, private router: Router) {}
 
   ngOnInit() {
     this.signInForm = this.formBuilder.group({
