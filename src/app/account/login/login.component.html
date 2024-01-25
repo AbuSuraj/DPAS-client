@@ -1,1 +1,39 @@
-<p>login works!</p>
+<!-- account/login/login.component.html -->
+
+<div class="login-container">
+    <div class="background-images">
+      <!-- Left-side background image -->
+      <div class="left-background-image"></div>
+  
+      <!-- Right-side background images -->
+      <div class="right-background-images">
+        <div>
+          <div class="top-right-image">
+            <div class="login-form">
+              <form [formGroup]="signInForm">
+                <span for="selectedOption">Sign In as</span>
+                <div class="role-dropdown" [class.open]="isDropdownOpen">
+                  <!-- <select formControlName="selectedOption" id="selectedOption" (click)="toggleDropdown()"> -->
+                    <!-- <option disabled value="Select Role">Select Role</option>
+                    <option *ngFor="let option of dropdownOptions" [value]="option.value">
+                      {{ option.label }}
+                    </option> -->
+                  <!-- </select> -->
+                  <span   id="selectedOption" (click)="toggleDropdown()">Select Role</span>
+                  <div class="dropdown-menu" *ngIf="isDropdownOpen">
+                    <div class="menu-item" *ngFor="let option of dropdownOptions" (click)="selectDropdownOption(option)">
+                      {{ option.label }}
+                    </div>
+                  </div>
+                </div>
+              </form>
+              <!-- Your login form goes here -->
+            </div>
+          </div>
+          <div class="bottom-right-image"></div>
+        </div>
+        <div class="fourth-image"></div>
+      </div>
+    </div>
+  </div>
+  
