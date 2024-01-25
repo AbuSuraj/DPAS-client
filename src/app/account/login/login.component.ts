@@ -1,7 +1,9 @@
 import { Component, ElementRef, HostListener, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
  
-import { HttpService } from './../../services/httpService.service';
+import { HttpService } from '../../services/service.service';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -20,7 +22,7 @@ export class LoginComponent implements OnInit {
     { label: 'Vistor', value: 'Vistor' },
   ];
   isDropdownOpen: boolean = false;
-  constructor(private formBuilder: FormBuilder, private elementRef: ElementRef, private service: HttpService) {}
+  constructor(private formBuilder: FormBuilder, private elementRef: ElementRef, private service: HttpService, private toastr: ToastrService, private router: Router) {}
 
   ngOnInit() {
     this.signInForm = this.formBuilder.group({
@@ -51,13 +53,15 @@ export class LoginComponent implements OnInit {
     if(this.signInForm.invalid) return;
     else {
       const {selectedOption, userId, password} = this.signInForm.value
-      console.log('Form Values:', selectedOption, userId, password  );
-      console.log('Signing in...');
+       
       this.service.login(userId, password).subscribe((res)=>{
         console.log('login successfull', res);
+        this.toastr.success('Login successful', 'Success');
+        this.router.navigate(['']);
       },
       (error)=>{
-        console.error('login failed', error)
+        console.error('login failed', error);
+        this.toastr.error('Wrong password or UserId', 'Login failed');
       })
     }
   }

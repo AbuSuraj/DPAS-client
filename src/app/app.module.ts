@@ -5,7 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './common-components/header/header/header.component';
 import { HttpClientModule } from '@angular/common/http';
- 
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -13,9 +15,11 @@ import { HttpClientModule } from '@angular/common/http';
     HeaderComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule, 
+    BrowserAnimationsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]
