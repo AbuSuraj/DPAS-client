@@ -24,5 +24,11 @@ export class ProxyService {
 
     return this.http.post(url, body, { headers });
   }
+  logout(): Observable<any> {
+    const url = `${this.apiUrl}/auth/logout`;
+    const headers = this.getHeaders();
+
+    return this.http.post(url, { headers });
+  }
 
 }
