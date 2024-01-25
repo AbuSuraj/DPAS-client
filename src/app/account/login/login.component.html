@@ -1,0 +1,59 @@
+
+<div class="login-container">
+    <div class="background-images">
+      <!-- Left-side background image -->
+      <div class="left-background-image"></div>
+  
+      <!-- Right-side background images -->
+      <div class="right-background-images">
+        <div>
+          <div class="top-right-image">
+            <div class="login-form">
+              <form [formGroup]="signInForm">
+                <span class="label-text" for="selectedOption">Sign In as</span>
+                <div class="custom-dropdown" (click)="toggleDropdown()">
+                  <div class="selected-option">
+                    {{ signInForm.get('selectedOption')?.value || 'Select Role' }}
+                  </div>
+                  <div class="dropdown-arrow">
+                    <svg width="22" height="13" viewBox="0 0 22 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M20 2L11 11L2 2" stroke="#8B8B8B" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </div>
+                  <div class="dropdown-options" *ngIf="isDropdownOpen">
+                    <div class="menu-item"
+                      *ngFor="let option of loginOptions"
+                      (click)="selectDropdownOption(option)"
+                    >
+                      {{ option.label }}
+                    </div>
+                  </div>
+                </div>
+  
+              
+                <div *ngIf="signInForm.get('selectedOption')?.value === 'Receptionist'">
+                  <div  >
+                    <label class="label-text" for="userId">User ID:</label>
+                    <input class="user-id-input" [class.invalid]="signInForm.get('userId')?.invalid && signInForm.get('userId')?.touched" type="text" formControlName="userId" placeholder="Enter your User ID">
+                    <div *ngIf="signInForm.get('userId')?.invalid && signInForm.get('userId')?.touched" class="error-message">
+                        User ID is required.
+                      </div>
+                  </div>
+                  <div  >
+                    <label class="label-text" for="password">Password:</label>
+                    <input [class.invalid]="signInForm.get('password')?.invalid && signInForm.get('password')?.touched" class="password-input" type="password" formControlName="password" placeholder="Enter your password">
+                    <div *ngIf="signInForm.get('password')?.invalid && signInForm.get('password')?.touched" class="error-message">
+                        Password is required.
+                      </div>
+                  </div>
+                  <button type="button" class="signin-button" (click)="signIn()">Sign In</button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="bottom-right-image"></div>
+        </div>
+        <div class="fourth-image"></div>
+      </div>
+    </div>
+  </div>

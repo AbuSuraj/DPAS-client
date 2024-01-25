@@ -6,11 +6,16 @@
         <img src="../../../../assets/images/logo.png" alt="Logo">
       </div>
       <nav class="nav-links">
-        <a routerLink="/" routerLinkActive="active">HOME</a>
-        <a routerLink="/" routerLinkActive="active">REGISTRATION</a>
-        <a routerLink="/" routerLinkActive="active">SIGN IN</a>
-        <a routerLink="/" routerLinkActive="active">MAKE APPOINTMENT</a>
-        <a routerLink="/" routerLinkActive="active">ABOUT US</a>
+        <a routerLink="/" routerLinkActive="active"  [routerLinkActiveOptions]="{exact:
+            true}">HOME</a>
+        <a routerLink="/register" routerLinkActive="active"  [routerLinkActiveOptions]="{exact:
+            true}">REGISTRATION</a>
+        <a routerLink="/account/login" routerLinkActive="active"  [routerLinkActiveOptions]="{exact:
+            true}">SIGN IN</a>
+        <a routerLink="/make-appoinment" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+            true}">MAKE APPOINTMENT</a>
+        <a routerLink="/about-us" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+            true}">ABOUT US</a>
       </nav>
       <div class="user-profile">
         <div class="user-title">
