@@ -22,7 +22,7 @@
                   </div>
                   <div class="dropdown-options" *ngIf="isDropdownOpen">
                     <div class="menu-item"
-                      *ngFor="let option of dropdownOptions"
+                      *ngFor="let option of loginOptions"
                       (click)="selectDropdownOption(option)"
                     >
                       {{ option.label }}

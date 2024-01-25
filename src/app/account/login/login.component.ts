@@ -1,5 +1,7 @@
 import { Component, ElementRef, HostListener, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+ 
+import { HttpService } from './../../services/httpService.service';
 
 
 @Component({
@@ -9,7 +11,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
   signInForm!: FormGroup;
-  dropdownOptions = [
+  loginOptions = [
     { label: 'Patient', value: 'Patient' },
     { label: 'Doctor', value: 'Doctor' },
     { label: 'Employee', value: 'Employee' },
@@ -18,7 +20,7 @@ export class LoginComponent implements OnInit {
     { label: 'Vistor', value: 'Vistor' },
   ];
   isDropdownOpen: boolean = false;
-  constructor(private formBuilder: FormBuilder, private elementRef: ElementRef) {}
+  constructor(private formBuilder: FormBuilder, private elementRef: ElementRef, private service: HttpService) {}
 
   ngOnInit() {
     this.signInForm = this.formBuilder.group({
@@ -48,8 +50,15 @@ export class LoginComponent implements OnInit {
     this.signInForm.markAllAsTouched();
     if(this.signInForm.invalid) return;
     else {
-      console.log('Form Values:', this.signInForm.value);
+      const {selectedOption, userId, password} = this.signInForm.value
+      console.log('Form Values:', selectedOption, userId, password  );
       console.log('Signing in...');
+      this.service.login(userId, password).subscribe((res)=>{
+        console.log('login successfull', res);
+      },
+      (error)=>{
+        console.error('login failed', error)
+      })
     }
   }
 }
