@@ -1,4 +1,3 @@
-<!-- account/login/login.component.html -->
 
 <div class="login-container">
     <div class="background-images">
@@ -11,7 +10,7 @@
           <div class="top-right-image">
             <div class="login-form">
               <form [formGroup]="signInForm">
-                <span for="selectedOption">Sign In as</span>
+                <span class="label-text" for="selectedOption">Sign In as</span>
                 <div class="custom-dropdown" (click)="toggleDropdown()">
                   <div class="selected-option">
                     {{ signInForm.get('selectedOption')?.value || 'Select Role' }}
@@ -30,8 +29,26 @@
                     </div>
                   </div>
                 </div>
+  
+              
+                <div *ngIf="signInForm.get('selectedOption')?.value === 'Receptionist'">
+                  <div  >
+                    <label class="label-text" for="userId">User ID:</label>
+                    <input class="user-id-input" [class.invalid]="signInForm.get('userId')?.invalid && signInForm.get('userId')?.touched" type="text" formControlName="userId" placeholder="Enter your User ID">
+                    <div *ngIf="signInForm.get('userId')?.invalid && signInForm.get('userId')?.touched" class="error-message">
+                        User ID is required.
+                      </div>
+                  </div>
+                  <div  >
+                    <label class="label-text" for="password">Password:</label>
+                    <input [class.invalid]="signInForm.get('password')?.invalid && signInForm.get('password')?.touched" class="password-input" type="password" formControlName="password" placeholder="Enter your password">
+                    <div *ngIf="signInForm.get('password')?.invalid && signInForm.get('password')?.touched" class="error-message">
+                        Password is required.
+                      </div>
+                  </div>
+                  <button type="button" class="signin-button" (click)="signIn()">Sign In</button>
+                </div>
               </form>
-              <!-- Your login form goes here -->
             </div>
           </div>
           <div class="bottom-right-image"></div>
@@ -40,4 +57,3 @@
       </div>
     </div>
   </div>
-  

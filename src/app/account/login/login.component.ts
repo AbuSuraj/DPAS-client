@@ -22,7 +22,9 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.signInForm = this.formBuilder.group({
-      selectedOption: ['Select Role', Validators.required],
+      selectedOption: ['Select Role', Validators.required], 
+      userId: ['', Validators.required], 
+      password: ['', Validators.required], 
     });
   }
 
@@ -40,6 +42,14 @@ export class LoginComponent implements OnInit {
   clickOutsideDropdown(event: Event) {
     if (!this.elementRef.nativeElement.contains(event.target)) {
       this.isDropdownOpen = false;
+    }
+  }
+  signIn(): void {
+    this.signInForm.markAllAsTouched();
+    if(this.signInForm.invalid) return;
+    else {
+      console.log('Form Values:', this.signInForm.value);
+      console.log('Signing in...');
     }
   }
 }
