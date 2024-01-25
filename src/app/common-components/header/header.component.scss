@@ -10,7 +10,11 @@
       align-items: center;
       padding: 0 20px;
       height: 100%;
-  
+     
+      .logo-icon-container{
+      display: flex;
+      justify-content: space-between;
+     align-items: center;
       .logo-container {
         width: 152px;
         height: 65px;
@@ -21,6 +25,11 @@
           object-fit: contain; 
         }
       }
+
+      .icon-container{
+        margin: 33px 25px 31px 64px;
+      }
+     }
   
       .nav-links {
         display: flex;
