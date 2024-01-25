@@ -1,1 +1,8 @@
-<p>dashboard works!</p>
+<div class="dashboard-container">
+
+    <div>
+        <app-sidebar (navigate)="onSidebarNavigate($event)"></app-sidebar>
+      </div>
+      <div> <router-outlet></router-outlet> </div>
+</div>
+  

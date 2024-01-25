@@ -1,0 +1,22 @@
+/* dashboard-sidebar.component.scss */
+.menu-bar {
+    background: #5089FF;
+    width: 320px;
+    height: 1299px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+     border-top: 3px solid #FFFFFF;
+    .menu-item {
+      font-family: 'Inter';
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 22px;
+      letter-spacing: 0em;
+      text-align: left;
+      color: #fff;
+      margin-bottom: 16px;
+      cursor: pointer;
+    }
+  }
+  

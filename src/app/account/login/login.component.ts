@@ -59,7 +59,7 @@ export class LoginComponent implements OnInit {
         // console.log('login successfull', res);
         this.authService.setLoggedIn(true);
         this.toastr.success('Login successful', 'Success');
-        this.router.navigate(['/dashoard']);
+        this.router.navigate(['/dashboard']);
       },
       (error)=>{
         console.error('login failed', error);
