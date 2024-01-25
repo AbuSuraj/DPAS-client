@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
@@ -18,19 +18,28 @@ export class LoginComponent implements OnInit {
     { label: 'Vistor', value: 'Vistor' },
   ];
   isDropdownOpen: boolean = false;
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder, private elementRef: ElementRef) {}
 
   ngOnInit() {
     this.signInForm = this.formBuilder.group({
       selectedOption: ['Select Role', Validators.required],
     });
   }
+
   toggleDropdown(): void {
     this.isDropdownOpen = !this.isDropdownOpen;
   }
 
   selectDropdownOption(option: any): void {
+    console.log(option.value);
     this.signInForm?.get('selectedOption')?.setValue(option.value);
     this.isDropdownOpen = false;
+  }
+
+  @HostListener('document:click', ['$event'])
+  clickOutsideDropdown(event: Event) {
+    if (!this.elementRef.nativeElement.contains(event.target)) {
+      this.isDropdownOpen = false;
+    }
   }
 }
