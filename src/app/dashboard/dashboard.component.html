@@ -1,8 +1,13 @@
 <div class="dashboard-container">
-
-    <div>
+    <!-- Sidebar Component -->
+    <div class="sidebar-container">
         <app-sidebar (navigate)="onSidebarNavigate($event)"></app-sidebar>
-      </div>
-      <div> <router-outlet></router-outlet> </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="main-content">
+       
+        <router-outlet></router-outlet>
+    </div>
 </div>
-  
+ 

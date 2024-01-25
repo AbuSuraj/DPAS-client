@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-appointment-list',
@@ -6,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./appointment-list.component.scss']
 })
 export class AppointmentListComponent {
-
+  constructor(private router:Router){}
+  showDetails(id:number){
+    this.router.navigate(['dashboard', 'visitor-appointment', id])
+  }
 }

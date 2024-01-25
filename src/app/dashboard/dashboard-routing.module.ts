@@ -3,11 +3,16 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard.component';
 import { WalkinAppointmentComponent } from './walkin-appointment/walkin-appointment.component';
 import { AppointmentListComponent } from './appointment-list/appointment-list.component';
+import { DetailsComponent } from './appointment-list/details/details.component';
 
 const routes: Routes = [
-  {path:'', component: DashboardComponent},
-  {path:'walkin-appointment', component: WalkinAppointmentComponent},
-  {path:'appointment-list', component: AppointmentListComponent},
+  {path:'', component: DashboardComponent, children:[
+    {path:'walkin-appointment', component: WalkinAppointmentComponent},
+    {path:'visitor-appointment', component: AppointmentListComponent},
+    { path:'visitor-appointment', children:[
+      {path:':id', component: DetailsComponent}
+    ]},
+  ]},
 ];
 
 @NgModule({
