@@ -9,6 +9,6 @@ import { Router } from '@angular/router';
 export class AppointmentListComponent {
   constructor(private router:Router){}
   showDetails(id:number){
-    this.router.navigate(['dashboard', 'visitor-appointment', id])
+    this.router.navigate(['dashboard', 'visitor-online', id])
   }
 }

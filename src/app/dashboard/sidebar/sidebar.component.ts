@@ -31,7 +31,7 @@ export class SidebarComponent {
   //     this.router.navigate(['/dashboard', item])
   //   }
   // }
-  visitor(){
+  toggleVisitor(){
     this.isVisitorSelect = !this.isVisitorSelect;
   }
   logout(){

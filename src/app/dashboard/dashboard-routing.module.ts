@@ -8,8 +8,8 @@ import { DetailsComponent } from './appointment-list/details/details.component';
 const routes: Routes = [
   {path:'', component: DashboardComponent, children:[
     {path:'walkin-appointment', component: WalkinAppointmentComponent},
-    {path:'visitor-appointment', component: AppointmentListComponent},
-    { path:'visitor-appointment', children:[
+    {path:'visitor-online', component: AppointmentListComponent},
+    { path:'visitor-online', children:[
       {path:':id', component: DetailsComponent}
     ]},
   ]},

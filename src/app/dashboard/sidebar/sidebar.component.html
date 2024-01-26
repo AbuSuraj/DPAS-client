@@ -20,14 +20,13 @@
     [routerLinkActiveOptions]="{ exact: true }"  >
       PROFILE SETTING
     </li>
-    <li class="menu-item"  routerLink="/dashboard/visitor-appointment"
-    routerLinkActive="active"
-    [routerLinkActiveOptions]="{ exact: true }" (click)="visitor()">
-    VISITOR APPOINTMENT
-  </li>
-  <li class="sub-menu-item" *ngIf="isVisitorSelect">
-    <span class="online-appointment">ONLINE APPOINTMENT</span>
-    <span  class="physical-appointment">PHYSICAL APPOINTMENT</span>
+    <li class="menu-item"  [class.active]="isVisitorSelect"
+     >
+   <span (click)="toggleVisitor()">VISITOR APPOINTMENT</span> 
+    <a class="sub-menu-item" *ngIf="isVisitorSelect">
+      <span routerLink="/dashboard/visitor-online" class="online-appointment">ONLINE APPOINTMENT</span>
+      <span routerLink="/dashboard/visitor-physical"  class="physical-appointment">PHYSICAL APPOINTMENT</span>
+    </a>
   </li>
      
     <li *ngIf="!isVisitorSelect" class="menu-item">
