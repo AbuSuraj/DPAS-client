@@ -1,5 +1,39 @@
 <div class="menu-bar">
-    <div class="menu-item" *ngFor="let item of menuItems" (click)="onItemClick(item.value)">
-      {{ item.name }}
-    </div>
+    <li class="menu-item"  
+    routerLink="/dashboard/online-appointment"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }"  >
+      ONLINE APPOINTMENT
+    </li>
+    <li class="menu-item" routerLink="/dashboard/walkin-appointment"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }"  >
+      WALKIN APPOINTMENT
+    </li>
+    <li class="menu-item" routerLink="/dashboard/account"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }"  >
+      ACCOUNTS
+    </li>
+    <li class="menu-item" routerLink="/dashboard/profile-setting"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }"  >
+      PROFILE SETTING
+    </li>
+    <li class="menu-item"  routerLink="/dashboard/visitor-appointment"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }" (click)="visitor()">
+    VISITOR APPOINTMENT
+  </li>
+  <li class="sub-menu-item" *ngIf="isVisitorSelect">
+    <span class="online-appointment">ONLINE APPOINTMENT</span>
+    <span  class="physical-appointment">PHYSICAL APPOINTMENT</span>
+  </li>
+     
+    <li *ngIf="!isVisitorSelect" class="menu-item">
+      HOSPITAL ADMISSION
+    </li>
+    <li *ngIf="!isVisitorSelect" class="menu-item" (click)="logout()"  >
+      Logout
+    </li>
   </div>

@@ -10,7 +10,8 @@ import { ProxyService } from 'src/app/services/services-proxy/proxy.service';
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent { 
-     constructor(private toastr: ToastrService, private router: Router, private authService: AuthenticationService,private service: ProxyService){}
+  isVisitorSelect = false;  
+  constructor(private toastr: ToastrService, private router: Router, private authService: AuthenticationService,private service: ProxyService){}
   menuItems = [
    {name:'ONLINE APPOINTMENT', value: 'online-appointment'}, 
    {name:'WALKIN APPOINTMENT', value: 'walkin-appointment'}, 
@@ -21,16 +22,18 @@ export class SidebarComponent {
    {name:'Logout', value: 'logout'}
   ];
 
-  onItemClick(item: string): void {
-    // this.navigate.emit(item);
-    if(item ==='logout'){
-      this.logout();
-    }
-    else{
-      this.router.navigate(['/dashboard', item])
-    }
+  // onItemClick(item: string): void {
+  //   // this.navigate.emit(item);
+  //   if(item ==='logout'){
+  //     this.logout();
+  //   }
+  //   else{
+  //     this.router.navigate(['/dashboard', item])
+  //   }
+  // }
+  visitor(){
+    this.isVisitorSelect = !this.isVisitorSelect;
   }
-
   logout(){
     this.service.logout().subscribe(res =>{
       this.authService.setLoggedIn(false);

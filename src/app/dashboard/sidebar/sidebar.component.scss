@@ -17,6 +17,37 @@
       color: #fff;
       margin-bottom: 16px;
       cursor: pointer;
+      text-decoration: none;
+      list-style: none;
+      &.active{
+        color:#FFC02D !important;
+      }
+    }
+    .sub-menu-item{
+      font-family: 'Inter';
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 22px;
+      letter-spacing: 0em;
+      text-align: left;
+      color: #fff;
+      margin-bottom: 16px;
+      
+      text-decoration: none;
+      list-style: none;
+      display: flex;
+      flex-direction: column-reverse;
+      margin-left: -18px;
+      background: #79A5FF;
+      width: 358px;
+      height: 102;
+      span{
+        padding: 15px 30px;
+        cursor: pointer;
+        //  .online-appointment{
+        //   padding: 22px 65px 19px 72px;
+        //  }
+      }
     }
   }
   
