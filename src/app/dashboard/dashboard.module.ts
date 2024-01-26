@@ -8,8 +8,8 @@ import { WalkinAppointmentComponent } from './walkin-appointment/walkin-appointm
 import { AppointmentListComponent } from './appointment-list/appointment-list.component';
 import { DetailsComponent } from './appointment-list/details/details.component';
 import { HomeComponent } from './home/home.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; 
+import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
   declarations: [
