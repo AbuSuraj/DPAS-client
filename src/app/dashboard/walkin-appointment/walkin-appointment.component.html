@@ -3,5 +3,72 @@
     <div>
         <h5>Appointment info</h5>
     </div>
+
+    <form class="appointment-form" [formGroup]="appointmentForm">
+        <div class="dropdown-container">
+          <div class="prob-dept-box">
+              <div>
+                <span class="label-text">Problem</span>
+                <div class="custom-dropdown"(click)="toggleProblemDropdown()">
+                  <div class="selected-option">
+                    {{ selectedProblem || 'Select Problem' }}
+                  </div>
+                  <div class="dropdown-arrow">
+                    <svg width="22" height="13" viewBox="0 0 22 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 2L11 11L2 2" stroke="#8B8B8B" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                  </div>
+                  <div class="dropdown-options" *ngIf="isProblemDropdownOpen">
+                    <div class="menu-item" *ngFor="let problem of problems" (click)="selectProblem(problem)">
+                      {{ problem }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            
+              <!-- Department Dropdown -->
+              <div class="dropdown">
+                <span class="label-text">Department</span>
+                <div class="custom-dropdown" (click)="toggleDepartmentDropdown()">
+                  <div class="selected-option">
+                    {{ selectedDepartment || 'Select Department' }}
+                  </div>
+                  <div class="dropdown-arrow">
+                    <svg width="22" height="13" viewBox="0 0 22 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 2L11 11L2 2" stroke="#8B8B8B" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                  </div>
+                  <div class="dropdown-options" *ngIf="isDepartmentDropdownOpen">
+                    <div class="menu-item" *ngFor="let department of departments" (click)="selectDepartment(department)">
+                      {{ department }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+          
+            <!-- Doctor Dropdown -->
+            <div class="dropdown">
+              <span class="label-text">Doctor</span>
+              <div class="custom-dropdown" (click)="toggleDoctorDropdown()">
+                <div class="selected-option">
+                  {{ selectedDoctor || 'Select Doctor' }}
+                </div>
+                <div class="dropdown-arrow">
+                    <svg width="22" height="13" viewBox="0 0 22 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 2L11 11L2 2" stroke="#8B8B8B" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                </div>
+                <div class="dropdown-options" *ngIf="isDoctorDropdownOpen">
+                  <div class="menu-item" *ngFor="let doctor of doctors" (click)="selectDoctor(doctor)">
+                    {{ doctor }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+    </form>
+
 </div>
 </div>

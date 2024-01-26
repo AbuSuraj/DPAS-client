@@ -8,6 +8,7 @@ import { WalkinAppointmentComponent } from './walkin-appointment/walkin-appointm
 import { AppointmentListComponent } from './appointment-list/appointment-list.component';
 import { DetailsComponent } from './appointment-list/details/details.component';
 import { HomeComponent } from './home/home.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -21,7 +22,9 @@ import { HomeComponent } from './home/home.component';
   ],
   imports: [
     CommonModule,
-    DashboardRoutingModule
+    DashboardRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class DashboardModule { }
