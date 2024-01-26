@@ -7,6 +7,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { WalkinAppointmentComponent } from './walkin-appointment/walkin-appointment.component';
 import { AppointmentListComponent } from './appointment-list/appointment-list.component';
 import { DetailsComponent } from './appointment-list/details/details.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { DetailsComponent } from './appointment-list/details/details.component';
     SidebarComponent,
     WalkinAppointmentComponent,
     AppointmentListComponent,
-    DetailsComponent
+    DetailsComponent,
+    HomeComponent
   ],
   imports: [
     CommonModule,
