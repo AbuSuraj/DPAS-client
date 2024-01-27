@@ -124,12 +124,14 @@
       
         .error-message {
           color: red;
-          width: 135px;
+          width: 185px;
           font-size: 14px;
+          margin-bottom: 14px;
+          margin-left: 5px;
         }
       
         .signin-button {
-          // width: 100%;
+          width: 100px;
           height: 40px;
           background-color: #5089FF;
           color: #FFFFFF;

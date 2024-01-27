@@ -17,6 +17,7 @@ export class WalkinAppointmentComponent implements OnInit {
   isDepartmentDropdownOpen = false;
   isDoctorDropdownOpen = false;
   isDropdownOpen = false;
+  isSexDropdownOpen = false;
   // Dropdown options
   problems: string[] = ['Malnutrition', 'Infectious Diseases', 'Maternal and Child Health', 'Non-Communicable Diseases'];
   departments: string[] = ['Medicine', 'Pediatrics', 'Ophthalmology', 'Orthopedics', 'Gynecology', 'EYE'];
@@ -27,6 +28,7 @@ export class WalkinAppointmentComponent implements OnInit {
   selectedProblem = '';
   selectedDepartment = '';
   selectedDoctor = '';
+  selectedSex = '';
 
   constructor(private formBuilder: FormBuilder, private elementRef: ElementRef,private service: ProxyService, private toastr: ToastrService, private router: Router) { }
 
@@ -59,9 +61,7 @@ export class WalkinAppointmentComponent implements OnInit {
   }
 
   toggleProblemDropdown(): void {
-   
     this.isProblemDropdownOpen = !this.isProblemDropdownOpen;
-
   }
 
   // Toggle Department dropdown
@@ -73,12 +73,15 @@ export class WalkinAppointmentComponent implements OnInit {
   toggleDoctorDropdown(): void {
     this.isDoctorDropdownOpen = !this.isDoctorDropdownOpen;
   }
+  toggleSexDropdown(): void {
+    this.isSexDropdownOpen = !this.isSexDropdownOpen;
+  }
 
   // Select problem
   selectProblem(problem: string) {
     this.selectedProblem = problem;
     this.appointmentForm?.get('problem')?.setValue(problem)
-    console.log(problem);
+    // console.log(problem);
     this.isProblemDropdownOpen = false; // Close the dropdown
     
   }
@@ -87,7 +90,7 @@ export class WalkinAppointmentComponent implements OnInit {
   selectDepartment(department: string): void {
     this.selectedDepartment = department;
     this.appointmentForm?.get('department')?.setValue(department);
-    console.log(department);
+    // console.log(department);
     
     this.isDepartmentDropdownOpen = false;  
   }
@@ -97,12 +100,14 @@ export class WalkinAppointmentComponent implements OnInit {
     this.selectedDoctor = doctor;
     this.isDoctorDropdownOpen = false;  
     this.appointmentForm?.get('doctor')?.setValue(doctor);
-    console.log(doctor);
-    
+    // console.log(doctor);
   }
-
-  toggleDropdown(): void {
-    this.isDropdownOpen = !this.isDropdownOpen;
+  selectSex(sex: string): void {
+    // this.selectedSex = sex;
+    this.isSexDropdownOpen = false;  
+    this.selectedSex = sex
+    this.appointmentForm?.get('sex')?.setValue(sex);
+    // console.log(sex);
   }
 
   @HostListener('document:click', ['$event'])
@@ -111,6 +116,7 @@ export class WalkinAppointmentComponent implements OnInit {
       this.isProblemDropdownOpen = false;
       this.isDepartmentDropdownOpen = false;
       this.isDoctorDropdownOpen = false; 
+      this.isSexDropdownOpen = false; 
       // this.isDropdownOpen = false;
     }
   }

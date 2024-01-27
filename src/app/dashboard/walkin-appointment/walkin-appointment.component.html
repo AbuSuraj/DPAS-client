@@ -1,185 +1,352 @@
 <div class="walkin-container">
-
-  
   <form class="appointment-form" [formGroup]="appointmentForm">
     <div>
-        <h5>Appointment info</h5>
+      <h5>Appointment info</h5>
     </div>
+    <div>
+      <div class="row-box">
         <div>
-          <div class="row-box">
-              <div>
-                <span class="label-text">Problem</span>
-                <div class="custom-dropdown"(click)="toggleProblemDropdown()">
-                  <div class="selected-option">
-                    {{ selectedProblem || 'Select Problem' }}
-                  </div>
-                  <div class="dropdown-arrow">
-                    <svg width="22" height="13" viewBox="0 0 22 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M20 2L11 11L2 2" stroke="#8B8B8B" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                      </svg>
-                  </div>
-                  <div class="dropdown-options" *ngIf="isProblemDropdownOpen">
-                    <div class="menu-item" *ngFor="let problem of problems" (click)="selectProblem(problem)">
-                      {{ problem }}
-                    </div>
-                  </div>
-                </div>
+          <span class="label-text">Problem</span>
+          <div class="custom-dropdown" (click)="toggleProblemDropdown()">
+            <div class="selected-option">
+              {{ selectedProblem || "Select Problem" }}
+            </div>
+            <div class="dropdown-arrow">
+              <svg
+                width="22"
+                height="13"
+                viewBox="0 0 22 13"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M20 2L11 11L2 2"
+                  stroke="#8B8B8B"
+                  stroke-width="4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <div class="dropdown-options" *ngIf="isProblemDropdownOpen">
+              <div
+                class="menu-item"
+                *ngFor="let problem of problems"
+                (click)="selectProblem(problem)"
+              >
+                {{ problem }}
               </div>
-            
-              <!-- Department Dropdown -->
-              <div class="dropdown">
-                <span class="label-text">Department</span>
-                <div class="custom-dropdown" (click)="toggleDepartmentDropdown()">
-                  <div class="selected-option">
-                    {{ selectedDepartment || 'Select Department' }}
-                  </div>
-                  <div class="dropdown-arrow">
-                    <svg width="22" height="13" viewBox="0 0 22 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M20 2L11 11L2 2" stroke="#8B8B8B" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                      </svg>
-                  </div>
-                  <div class="dropdown-options" *ngIf="isDepartmentDropdownOpen">
-                    <div class="menu-item" *ngFor="let department of departments" (click)="selectDepartment(department)">
-                      {{ department }}
-                    </div>
-                  </div>
-                </div>
-              </div>
+            </div>
           </div>
-          
-            <!-- Doctor Dropdown -->
-            <div class="row-box">
-                <div class="dropdown">
-                  <span class="label-text">Doctor</span>
-                  <div class="custom-dropdown" (click)="toggleDoctorDropdown()">
-                    <div class="selected-option">
-                      {{ selectedDoctor || 'Select Doctor' }}
-                    </div>
-                    <div class="dropdown-arrow">
-                        <svg width="22" height="13" viewBox="0 0 22 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M20 2L11 11L2 2" stroke="#8B8B8B" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                          </svg>
-                    </div>
-                    <div class="dropdown-options" *ngIf="isDoctorDropdownOpen">
-                      <div class="menu-item" *ngFor="let doctor of doctors" (click)="selectDoctor(doctor)">
-                        {{ doctor }}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="arrivale-date">
-                    <label class="label-text" for="arrival_date">Arrivale Date</label>
-                    <input class="input-group" type="text" formControlName="arrival_date" placeholder="Select Arrival Date">
-                     
-                </div>
-            </div>
-            <div class="arrivale-time">
-                <label class="label-text" for="arrival_time">Arrivale Time</label>
-                <input class="input-group" type="time" formControlName="arrival_time" placeholder="Select Arrival Time">
-                 
-            </div>
         </div>
-        
+
+        <!-- Department Dropdown -->
+        <div class="dropdown">
+          <span class="label-text">Department</span>
+          <div class="custom-dropdown" (click)="toggleDepartmentDropdown()">
+            <div class="selected-option">
+              {{ selectedDepartment || "Select Department" }}
+            </div>
+            <div class="dropdown-arrow">
+              <svg
+                width="22"
+                height="13"
+                viewBox="0 0 22 13"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M20 2L11 11L2 2"
+                  stroke="#8B8B8B"
+                  stroke-width="4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <div class="dropdown-options" *ngIf="isDepartmentDropdownOpen">
+              <div
+                class="menu-item"
+                *ngFor="let department of departments"
+                (click)="selectDepartment(department)"
+              >
+                {{ department }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Doctor Dropdown -->
+      <div class="row-box">
+        <div class="dropdown">
+          <span class="label-text">Doctor</span>
+          <div class="custom-dropdown" (click)="toggleDoctorDropdown()">
+            <div class="selected-option">
+              {{ selectedDoctor || "Select Doctor" }}
+            </div>
+            <div class="dropdown-arrow">
+              <svg
+                width="22"
+                height="13"
+                viewBox="0 0 22 13"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M20 2L11 11L2 2"
+                  stroke="#8B8B8B"
+                  stroke-width="4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <div class="dropdown-options" *ngIf="isDoctorDropdownOpen">
+              <div
+                class="menu-item"
+                *ngFor="let doctor of doctors"
+                (click)="selectDoctor(doctor)"
+              >
+                {{ doctor }}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="arrivale-date">
+          <label class="label-text" for="arrival_date">Arrivale Date</label>
+          <input
+            class="input-group"
+            type="text"
+            formControlName="arrival_date"
+            placeholder="Select Arrival Date"
+          />
+        </div>
+      </div>
+      <div class="arrivale-time"  [class.error]="appointmentForm.get('arrival_time')?.invalid && appointmentForm.get('arrival_time')?.touched">
+        <label class="label-text" for="arrival_time">Arrivale Time</label>
+        <input
+          class="input-group"
+          type="text"
+          formControlName="arrival_time"
+          placeholder="Select Arrival Time"
+          [class.invalid]="appointmentForm.get('arrival_time')?.invalid && appointmentForm.get('arrival_time')?.touched"
+        />
+        <div *ngIf="appointmentForm.get('arrival_time')?.invalid && appointmentForm.get('arrival_time')?.touched" class="error-message">
+          Please enter a valid time in HH:MM:SS format.
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h5>Patient info</h5>
+
+      <div class="row-box">
+        <div class="arrivale-time">
+          <label class="label-text" for="patient_name_english"
+            >Name in English</label
+          >
+          <input
+            class="input-group"
+            type="text"
+            formControlName="patient_name_english"
+            placeholder="Enter name"
+          />
+        </div>
+        <div class="arrivale-time">
+          <label class="label-text" for="patient_name_bangla"
+            >Name in Bangla</label
+          >
+          <input
+            class="input-group"
+            type="text"
+            formControlName="patient_name_bangla"
+            placeholder="Enter Name"
+          />
+        </div>
+      </div>
+      <div class="row-box">
+        <div class="arrivale-time">
+          <label class="label-text" for=" patient_father_name_english"
+            >Father’s Name English</label
+          >
+          <input
+            class="input-group"
+            type="text"
+            formControlName="patient_father_name_english"
+            placeholder="Enter Father's Name"
+          />
+        </div>
+        <div class="arrivale-time">
+          <label class="label-text" for="patient_father_name_bangla"
+            >Father’s Name Bangla</label
+          >
+          <input
+            class="input-group"
+            type="text"
+            formControlName="patient_father_name_bangla"
+            placeholder="Enter Father's Name"
+          />
+        </div>
+      </div>
+      <div class="row-box">
+        <div class="arrivale-time">
+          <label class="label-text" for="patient_father_name_english"
+            >Mother’s Name English</label
+          >
+          <input
+            class="input-group"
+            type="text"
+            formControlName="patient_father_name_english"
+            placeholder="Enter Mother's Name"
+          />
+        </div>
+        <div class="arrivale-time">
+          <label class="label-text" for="patient_father_name_bangla"
+            >Mother’s Name Bangla</label
+          >
+          <input
+            class="input-group"
+            type="text"
+            formControlName="patient_mother_name_bangla"
+            placeholder="Enter Mother's Name"
+          />
+        </div>
+      </div>
+      <div>
         <div>
-          <h5>Patient info</h5>
-
-          <div  class="row-box">
-            <div class="arrivale-time">
-              <label class="label-text" for="patient_name_english">Name in English</label>
-              <input class="input-group" type="text" formControlName="patient_name_english" placeholder="Enter name">
-          </div>
-          <div class="arrivale-time">
-            <label class="label-text" for="patient_name_bangla">Name in Bangla</label>
-            <input class="input-group" type="text" formControlName="patient_name_bangla" placeholder="Enter Name">
-             
+          <label class="label-text" for="present_address"
+            >Present address</label
+          >
+          <input
+            class="address-box"
+            type="text"
+            formControlName="present_address"
+            placeholder="Enter present address"
+          />
         </div>
-          </div>
-          <div  class="row-box">
-            <div class="arrivale-time">
-              <label class="label-text" for=" patient_father_name_english">Father’s Name English</label>
-              <input class="input-group" type="text" formControlName="patient_father_name_english" placeholder="Enter Father's Name">
-               
-          </div>
-          <div class="arrivale-time">
-            <label class="label-text" for="patient_father_name_bangla">Father’s Name Bangla</label>
-            <input class="input-group" type="text" formControlName="patient_father_name_bangla" placeholder="Enter Father's Name">
-             
+      </div>
+      <div>
+        <div>
+          <label class="label-text" for="permanent_address"
+            >Permanent address</label
+          >
+          <input
+            class="address-box"
+            type="text"
+            formControlName="permanent_address"
+            placeholder="Enter permanent address"
+          />
         </div>
+      </div>
+      <div class="row-box">
+        <div class="arrivale-time">
+          <label class="label-text" for="mobile_number">Mobile number *</label>
+          <input
+            class="input-group"
+            type="text"
+            [class.invalid]="appointmentForm.get('mobile_number')?.invalid && appointmentForm.get('mobile_number')?.touched"
+            formControlName="mobile_number"
+            placeholder="Enter Mobile Number"
+          />
+          <div *ngIf="appointmentForm.get('mobile_number')?.invalid && appointmentForm.get('mobile_number')?.touched" class="error-message">
+            Mobile Number is required.
           </div>
-          <div  class="row-box">
-            <div class="arrivale-time">
-            <label class="label-text" for="patient_father_name_english">Mother’s Name English</label>
-            <input class="input-group" type="text" formControlName="patient_father_name_english" placeholder="Enter Mother's Name">
-             
+        </div>
+        <div class="arrivale-time">
+          <label class="label-text" for="email">Email</label>
+          <input
+            class="input-group"
+            type="text"
+            formControlName="email"
+            placeholder="Enter Email"
+            [class.invalid]="appointmentForm.get('email')?.invalid && appointmentForm.get('email')?.touched"
+          />
+          <div *ngIf="appointmentForm.get('email')?.invalid && appointmentForm.get('email')?.touched" class="error-message">
+            Invalid Email.
+          </div>
+        </div>
+      </div>
+      <div class="row-box">
+        <div>
+          <label class="label-text" for="nid_or_birth_certificate_no"
+            >NID/Birth certificate *</label
+          >
+          <input
+            class="input-group"
+            type="text"
+            formControlName="nid_or_birth_certificate_no"
+            [class.invalid]="appointmentForm.get('nid_or_birth_certificate_no')?.invalid && appointmentForm.get('nid_or_birth_certificate_no')?.touched"
+            placeholder="Enter NID/Birth certificate no."
+          />
+          <div *ngIf="appointmentForm.get('nid_or_birth_certificate_no')?.invalid && appointmentForm.get('nid_or_birth_certificate_no')?.touched" class="error-message">
+            NID/Birth certificate is required.
+          </div>
+        </div>
+        <div class="dropdown">
+          <span class="label-text">Sex</span>
+          <div class="custom-dropdown" (click)="toggleSexDropdown()">
+            <div class="selected-option">
+              {{ selectedSex || "Pick" }}
             </div>
-            <div class="arrivale-time">
-              <label class="label-text" for="patient_father_name_bangla">Mother’s Name Bangla</label>
-              <input class="input-group" type="text" formControlName="patient_mother_name_bangla" placeholder="Enter Mother's Name">
-          </div>
-          </div>
-          <div>
-            <div>
-              <label class="label-text" for="present_address">Present address</label>
-              <input class="address-box" type="text" formControlName="present_address" placeholder="Enter present address">
-               
-          </div>
-          </div>
-          <div>
-            <div>
-              <label class="label-text" for="permanent_address">Permanent address</label>
-              <input class="address-box" type="text" formControlName="permanent_address" placeholder="Enter permanent address">  
-          </div>
-          </div>
-          <div  class="row-box">
-            <div class="arrivale-time">
-              <label class="label-text" for="mobile_number">Mobile number *</label>
-              <input class="input-group" type="text" formControlName="mobile_number" placeholder="Enter Mobile Number">
-               
-          </div>
-          <div class="arrivale-time">
-            <label class="label-text" for="email">Email</label>
-            <input class="input-group" type="text" formControlName="email" placeholder="Enter Email">
-             
-        </div>
-          </div>
-          <div class="row-box"> 
-            <div>
-                <label class="label-text" for="nid_or_birth_certificate_no">NID/Birth certificate *</label>
-                <input class="input-group" type="text" formControlName="nid_or_birth_certificate_no" placeholder="Enter NID/Birth certificate no.">
-                 
+            <div class="dropdown-arrow">
+              <svg
+                width="22"
+                height="13"
+                viewBox="0 0 22 13"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M20 2L11 11L2 2"
+                  stroke="#8B8B8B"
+                  stroke-width="4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
             </div>
-            <div class="dropdown">
-              <span class="label-text">Sex</span>
-              <div class="custom-dropdown" (click)="toggleDoctorDropdown()">
-                <div class="selected-option">
-                  {{ selectedDoctor || 'Pick' }}
-                </div>
-                <div class="dropdown-arrow">
-                    <svg width="22" height="13" viewBox="0 0 22 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M20 2L11 11L2 2" stroke="#8B8B8B" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                      </svg>
-                </div>
-                <div class="dropdown-options" *ngIf="isDoctorDropdownOpen">
-                  <div class="menu-item" *ngFor="let s of sex" (click)="selectDoctor(s)">
-                    {{ s }}
-                  </div>
-                </div>
+            <div class="dropdown-options" *ngIf="isSexDropdownOpen">
+              <div
+                class="menu-item"
+                *ngFor="let s of sex"
+                (click)="selectSex(s)"
+              >
+                {{ s }}
               </div>
             </div>
-        </div>
-          <div  class="row-box">
-            <div class="arrivale-time">
-              <label class="label-text" for="age">Age *</label>
-              <input class="input-group" type="text" formControlName="age" placeholder="Enter age">   
-          </div>
-          <div class="arrivale-time">
-            <label class="label-text" for="weight">Weight</label>
-            <input class="input-group" type="text" formControlName="weight" placeholder="Enter weight">
-             
-        </div>
           </div>
         </div>
-        <div><button type="button" class="signin-button" (click)="submit()">Save</button></div>
-    </form>
-
+      </div>
+      <div class="row-box">
+        <div class="arrivale-time">
+          <label class="label-text" for="age">Age *</label>
+          <input
+            class="input-group"
+            type="text"
+            formControlName="age"
+            placeholder="Enter age"
+            [class.invalid]="appointmentForm.get('age')?.invalid && appointmentForm.get('age')?.touched"
+          />
+          <div *ngIf="appointmentForm.get('age')?.invalid && appointmentForm.get('age')?.touched" class="error-message">
+            Age is required.
+          </div>
+        </div>
+        <div class="arrivale-time">
+          <label class="label-text" for="weight">Weight</label>
+          <input
+            class="input-group"
+            type="text"
+            formControlName="weight"
+            placeholder="Enter weight"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <button type="button" class="signin-button" (click)="submit()">
+        Save
+      </button>
+    </div>
+  </form>
 </div>
