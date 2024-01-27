@@ -1,2 +1,32 @@
-<p (click)="showDetails(2)">appointment-list works!</p>
-<!-- <router-outlet></router-outlet> -->
+<table class="appointment-table">
+    <thead>
+      <tr class="table-header">
+        <th>Created On</th>
+        <th >Visitor ID</th>
+        <th >Department</th>
+        <th >Meeting Person</th>
+        <th >Arrival Date</th>
+        <th >Arrival Time</th>
+        <th> Status</th>
+        <th >Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Iterate through appointment lists and display each appointment as a row -->
+      <!-- <tr *ngFor="let appointment of appointmentLists">
+        <td style="width: 130px;">{{ appointment.createdOn }}</td>
+        <td style="width: 100px;">{{ appointment.visitorId }}</td>
+        <td style="width: 120px;">{{ appointment.department }}</td>
+        <td style="width: 150px;">{{ appointment.meetingPerson }}</td>
+        <td style="width: 120px;">{{ appointment.arrivalDate }}</td>
+        <td style="width: 100px;">{{ appointment.arrivalTime }}</td>
+        <td style="width: 80px;">{{ appointment.status }}</td>
+        <td style="width: 100px;">
+        
+          <button (click)="editAppointment(appointment)">Edit</button>
+          <button (click)="deleteAppointment(appointment)">Delete</button>
+        </td>
+      </tr> -->
+    </tbody>
+  </table>
+  
