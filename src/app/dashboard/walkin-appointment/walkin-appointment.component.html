@@ -75,7 +75,7 @@
             </div>
             <div class="arrivale-time">
                 <label class="label-text" for="arrival_time">Arrivale Time</label>
-                <input class="input-group" type="text" formControlName="arrival_time" placeholder="Select Arrival Time">
+                <input class="input-group" type="time" formControlName="arrival_time" placeholder="Select Arrival Time">
                  
             </div>
         </div>
@@ -160,8 +160,8 @@
                       </svg>
                 </div>
                 <div class="dropdown-options" *ngIf="isDoctorDropdownOpen">
-                  <div class="menu-item" *ngFor="let doctor of doctors" (click)="selectDoctor(doctor)">
-                    {{ doctor }}
+                  <div class="menu-item" *ngFor="let s of sex" (click)="selectDoctor(s)">
+                    {{ s }}
                   </div>
                 </div>
               </div>
@@ -173,13 +173,13 @@
               <input class="input-group" type="text" formControlName="age" placeholder="Enter age">   
           </div>
           <div class="arrivale-time">
-            <label class="label-text" for="weight">Arrivale Time</label>
+            <label class="label-text" for="weight">Weight</label>
             <input class="input-group" type="text" formControlName="weight" placeholder="Enter weight">
              
         </div>
           </div>
         </div>
-        <div><button type="button" class="signin-button" (click)="submit()">Sign In</button></div>
+        <div><button type="button" class="signin-button" (click)="submit()">Save</button></div>
     </form>
 
 </div>

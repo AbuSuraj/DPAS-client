@@ -1,5 +1,8 @@
 import { Component, ElementRef, HostListener, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { ProxyService } from 'src/app/services/services-proxy/proxy.service';
 
 @Component({
   selector: 'app-walkin-appointment',
@@ -15,16 +18,17 @@ export class WalkinAppointmentComponent implements OnInit {
   isDoctorDropdownOpen = false;
   isDropdownOpen = false;
   // Dropdown options
-  problems: string[] = ['Problem 1', 'Problem 2', 'Problem 3'];
-  departments: string[] = ['Department 1', 'Department 2', 'Department 3'];
-  doctors: string[] = ['Doctor 1', 'Doctor 2', 'Doctor 3'];
+  problems: string[] = ['Malnutrition', 'Infectious Diseases', 'Maternal and Child Health', 'Non-Communicable Diseases'];
+  departments: string[] = ['Medicine', 'Pediatrics', 'Ophthalmology', 'Orthopedics', 'Gynecology', 'EYE'];
+  doctors: string[] = ['Abu Kamran Rahul', 'Nurul Huda', 'Ayesha Akhter', 'Alomghir kabir'];
+  sex: string[] = ['Male', 'Female'];
 
   // Selected options
   selectedProblem = '';
   selectedDepartment = '';
   selectedDoctor = '';
 
-  constructor(private formBuilder: FormBuilder, private elementRef: ElementRef) { }
+  constructor(private formBuilder: FormBuilder, private elementRef: ElementRef,private service: ProxyService, private toastr: ToastrService, private router: Router) { }
 
   ngOnInit(): void {
       this.formInitialise();
@@ -36,7 +40,7 @@ export class WalkinAppointmentComponent implements OnInit {
       department: [''],
       doctor: [''],
       arrival_date: ['' ],
-      arrival_time: ['' ],
+      arrival_time: ['00:00:00', [Validators.pattern(/^([01]?[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]$/)]],
       patient_name_english: [''],
       patient_name_bangla: [''],
       patient_father_name_english: [''],
@@ -115,5 +119,14 @@ export class WalkinAppointmentComponent implements OnInit {
     this.appointmentForm.markAllAsTouched();
     if(this.appointmentForm.invalid) return;
     console.log(this.appointmentForm.value);
+    this.service.createAppointment(this.appointmentForm.value).subscribe(res =>{
+      this.toastr.success('Apointment created successfully', 'Success');
+      this.router.navigate(['/dashboard/visitor-online']);
+    },
+    (error)=>{
+      console.error('failed', error);
+      this.toastr.error('Failed to create appointment', 'Login failed');
+    }
+    )
   }
 }
