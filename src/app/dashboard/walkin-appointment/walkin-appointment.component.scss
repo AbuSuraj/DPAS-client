@@ -1,7 +1,7 @@
-.walkin-container{
-    margin: 40px 60px;
 
-    .appointment-info-container{
+  
+  .walkin-container{
+      margin: 40px 60px;
        
         h5{
            font-family: Inter;
@@ -104,7 +104,7 @@
         }
       
         .input-group {
-       width: 460px;
+         width: 460px;
           height: 66px;
           border: 1px solid #8B8B8B;
           border-radius: 20px;
@@ -148,6 +148,29 @@
         display: flex;
         flex-direction: column;
       }
-
+      .address-box{
+        width: 960px;
+        height: 66px;
+        border: 1px solid #8B8B8B;
+        border-radius: 20px;
+        margin-bottom: 20px;
+        margin-top: 9px;
+        cursor: pointer;
+        box-shadow: 0px 4px 4px 0px #00000040;
+        padding-left: 10px;
+        &::placeholder {
+          color: #848383;
+          padding: 10px 24px;
+        }
+        &.invalid {
+          border-color: red;
+        }
+      }
+    
+      .error-message {
+        color: red;
+        width: 135px;
+        font-size: 14px;
+      
+      }
     }
-}
