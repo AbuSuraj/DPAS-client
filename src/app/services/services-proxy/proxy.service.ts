@@ -38,8 +38,8 @@ export class ProxyService {
     return this.http.post(url,appointment ,{ headers });
   }
 
-   getAppointments(): Observable<any> {
-    const url = `${this.apiUrl}/appointments/`;
+   getAppointments(s:string, page:number, pageSize:number): Observable<any> {
+    const url = `${this.apiUrl}/appointments/?q=${s}&page=${page}&pageSize=${pageSize}`;
     const headers = this.getHeaders();
     return this.http.get(url ,{ headers });
   }
