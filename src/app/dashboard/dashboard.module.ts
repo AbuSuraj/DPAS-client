@@ -10,7 +10,7 @@ import { DetailsComponent } from './appointment-list/details/details.component';
 import { HomeComponent } from './home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'; 
 import { BrowserModule } from '@angular/platform-browser';
-import { NgxPaginationModule } from 'ngx-pagination';
+import { NgxPaginationModule } from 'ngx-pagination'; 
 
 @NgModule({
   declarations: [
@@ -26,7 +26,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     DashboardRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
   ]
 })
 export class DashboardModule { }

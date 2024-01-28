@@ -23,7 +23,7 @@
         <tbody class="table-body">
         
           <tr *ngFor="let appointment of appointments | paginate: {id:'server', itemsPerPage:5, currentPage:currentPage, totalItems:totalAppointments}">
-            <td class="created" style="width: 130px;">{{ appointment.createdat | date: 'dd MMM yyyy - HH:mm:ss' }}</td>
+            <td class="created" style="width: 130px;">{{ appointment.createdat | date: 'dd MMM yyyy - HH:mm:ss' }}  On</td>
             <td style="width: 100px;">{{ appointment.patient_id }}</td>
             <td style="width: 120px;">{{ appointment.department }}</td>
             <td style="width: 150px;">{{ appointment.doctor }}</td>

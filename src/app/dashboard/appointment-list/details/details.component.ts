@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProxyService } from 'src/app/services/services-proxy/proxy.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-details',

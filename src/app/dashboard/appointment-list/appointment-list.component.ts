@@ -1,8 +1,6 @@
 import { Component, OnInit,AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormControl } from '@angular/forms';
-import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
-
 import { ProxyService } from 'src/app/services/services-proxy/proxy.service';
 @Component({
   selector: 'app-appointment-list',
