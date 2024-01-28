@@ -37,4 +37,9 @@ export class ProxyService {
     const headers = this.getHeaders();
     return this.http.post(url,appointment ,{ headers });
   }
+   getAppointments(): Observable<any> {
+    const url = `${this.apiUrl}/appointments/`;
+    const headers = this.getHeaders();
+    return this.http.get(url ,{ headers });
+  }
 }
