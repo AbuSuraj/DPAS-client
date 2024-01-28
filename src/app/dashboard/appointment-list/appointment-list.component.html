@@ -41,17 +41,29 @@
           </tr>
         </tbody>
       </table>
-      <div>
-        <p>Showing {{ startItem }} to {{ endItem }} of {{ totalAppointments }}</p>
-
-        <pagination-controls 
-        [previousLabel]="labels.previousLabel"
-        [nextLabel]="labels.nextLabel"
-        [screenReaderPaginationLabel]="labels.screenReaderPaginationLabel"
-        [screenReaderPageLabel]="labels.screenReaderPageLabel"
-        [screenReaderCurrentLabel]="labels.screenReaderCurrentLabel"
-        id="server"  (pageChange)="getData($event)"></pagination-controls>
+      <div class="pagination-container">
+        <div>
+          <label for="pageSize">items per page</label>
+          <select [(ngModel)]="pageSize" [formControl]="pageSizeControl">
+            <option   value="5">5</option>
+            <option   value="10">10</option>
+            <option  value="20">20</option>
+          </select>
+        </div>
+        <p>{{ startItem }} - {{ endItem }} of {{ totalAppointments }}</p>
+        <div>
+          <pagination-controls 
+            [previousLabel]="labels.previousLabel"
+            [nextLabel]="labels.nextLabel"
+            [screenReaderPaginationLabel]="labels.screenReaderPaginationLabel"
+            [screenReaderPageLabel]="labels.screenReaderPageLabel"
+            [screenReaderCurrentLabel]="labels.screenReaderCurrentLabel"
+            id="server"
+            (pageChange)="getData($event)">
+          </pagination-controls>
+        </div>
       </div>
+      
   </div>
 </div>
   
