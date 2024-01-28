@@ -16,7 +16,7 @@ export class AppointmentListComponent implements   OnInit{
    pageSizeControl = new FormControl();
    page = 1;
    currentPage = 1
-   pageSize = 10;
+   pageSize = 5;
    searchKey = ''
    startItem = 0;
    endItem = 0;

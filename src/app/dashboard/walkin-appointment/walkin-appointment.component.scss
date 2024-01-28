@@ -24,7 +24,10 @@
             display: flex;
             justify-content: space-between;
         }
-
+        
+        .right-side-input{
+          margin-left:40px;
+        }
         .label-text{
             color:#848383;
             margin-left:10px
@@ -143,9 +146,7 @@
           font-weight: 700;
         }
       }
-      .arrivale-date{
-        margin-left: 43px
-      }
+       
       .arrivale-time{
         display: flex;
         flex-direction: column;
