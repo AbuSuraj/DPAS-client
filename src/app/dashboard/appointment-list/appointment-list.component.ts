@@ -14,41 +14,54 @@ export class AppointmentListComponent implements   OnInit{
    totalAppointments =0;
    searchControl = new FormControl();
    page = 1;
+   currentPage = 1
    pageSize = 5;
    searchKey = ''
+   startItem = 0;
+   endItem = 0;
+   itemsLen = 1;
   constructor(private router:Router, private service: ProxyService){}
+  public labels: any = {
+    previousLabel: 'Previous',
+    nextLabel: 'Next',
+    screenReaderPaginationLabel: 'Pagination',
+    screenReaderPageLabel: 'page',
+    screenReaderCurrentLabel: `You're on page`
+}; 
 
-  showDetails(id:number){
-    this.router.navigate(['dashboard', 'visitor-online', id])
-  }
+ngOnInit(): void {
+  this.fetchData();
+  this.searchControl.valueChanges.subscribe(searchValue => {
+    this.searchKey = searchValue;
+    this.fetchData();
+  });
+}
 
-  ngOnInit(): void {
-       this.getData()
-       this.search();
-  }
- 
-  getData(){
-  this.service.getAppointments(this.searchKey, this.page, this.pageSize).subscribe((data: any) => {
-      this.appointments = data.appointments;
-      this.totalAppointments = data.totalAppointments;
+fetchData(): void {
+  this.service.getAppointments(this.searchKey, this.currentPage, this.pageSize)
+    .subscribe((data: any) => {
+      this.appointments = data.appointments || [];
+      this.totalAppointments = data.totalAppointments || 0;
+      this.itemsLen = this.appointments.length
+      this.calculateRange();
     });
- }
+}
 
-  search(){
-    this.searchControl.valueChanges.pipe(
-      debounceTime(300),  
-      distinctUntilChanged(),  
-      switchMap((searchValue: string) => {
-         this.searchKey = searchValue;
-        return this.service.getAppointments(this.searchKey, this.page, this.pageSize);
-      })
-    ).subscribe((data: any) => {
-      
-      this.appointments = data.appointments;
-      this.totalAppointments = data.totalAppointments;
-    });
-  }
-  details(id:number){
+getData(page: number): void {
+  this.currentPage = page;
+  this.fetchData();
+}
 
+calculateRange(): void {
+  const startIndex = (this.currentPage - 1) * this.pageSize + 1;
+  let endIndex = this.currentPage * this.pageSize;
+
+  if (this.appointments.length < this.pageSize) {
+    endIndex = startIndex + this.appointments.length - 1;
   }
+
+  this.startItem = startIndex;
+  this.endItem = endIndex;
+}
+
 }

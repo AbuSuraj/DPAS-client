@@ -22,7 +22,7 @@
         </thead>
         <tbody class="table-body">
         
-          <tr *ngFor="let appointment of appointments">
+          <tr *ngFor="let appointment of appointments | paginate: {id:'server', itemsPerPage:5, currentPage:currentPage, totalItems:totalAppointments}">
             <td class="created" style="width: 130px;">{{ appointment.createdat | date: 'dd MMM yyyy - HH:mm:ss' }}</td>
             <td style="width: 100px;">{{ appointment.patient_id }}</td>
             <td style="width: 120px;">{{ appointment.department }}</td>
@@ -41,6 +41,17 @@
           </tr>
         </tbody>
       </table>
+      <div>
+        <p>Showing {{ startItem }} to {{ endItem }} of {{ totalAppointments }}</p>
+
+        <pagination-controls 
+        [previousLabel]="labels.previousLabel"
+        [nextLabel]="labels.nextLabel"
+        [screenReaderPaginationLabel]="labels.screenReaderPaginationLabel"
+        [screenReaderPageLabel]="labels.screenReaderPageLabel"
+        [screenReaderCurrentLabel]="labels.screenReaderCurrentLabel"
+        id="server"  (pageChange)="getData($event)"></pagination-controls>
+      </div>
   </div>
 </div>
   
