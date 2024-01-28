@@ -10,7 +10,7 @@
     <table class="appointment-table">
         <thead>
           <tr class="table-header">
-            <th>Created On</th>
+            <th class="created">Created On</th>
             <th >Visitor ID</th>
             <th >Department</th>
             <th class="meeting-person">Meeting Person</th>
@@ -20,10 +20,10 @@
             <th >Action</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody class="table-body">
         
           <tr *ngFor="let appointment of appointments">
-            <td style="width: 130px;">{{ appointment.createdat | date: 'dd MMM yyyy - HH:mm:ss' }}</td>
+            <td class="created" style="width: 130px;">{{ appointment.createdat | date: 'dd MMM yyyy - HH:mm:ss' }}</td>
             <td style="width: 100px;">{{ appointment.patient_id }}</td>
             <td style="width: 120px;">{{ appointment.department }}</td>
             <td style="width: 150px;">{{ appointment.doctor }}</td>
@@ -31,7 +31,11 @@
             <td style="width: 100px;">{{'1970-01-01T' +  appointment.arrival_time| date: 'h:mm a'}}</td>
             <td style="width: 80px;">{{ appointment.status }}</td>
             <td style="width: 100px;">
-            
+            <span [routerLink]="[appointment.appointment_id]"><svg width="54" height="25" viewBox="0 0 54 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="54" height="25" rx="10" fill="#5089FF"/>
+              <path d="M27 9.5C26.2044 9.5 25.4413 9.81607 24.8787 10.3787C24.3161 10.9413 24 11.7044 24 12.5C24 13.2956 24.3161 14.0587 24.8787 14.6213C25.4413 15.1839 26.2044 15.5 27 15.5C27.7956 15.5 28.5587 15.1839 29.1213 14.6213C29.6839 14.0587 30 13.2956 30 12.5C30 11.7044 29.6839 10.9413 29.1213 10.3787C28.5587 9.81607 27.7956 9.5 27 9.5ZM27 17.5C25.6739 17.5 24.4021 16.9732 23.4645 16.0355C22.5268 15.0979 22 13.8261 22 12.5C22 11.1739 22.5268 9.90215 23.4645 8.96447C24.4021 8.02678 25.6739 7.5 27 7.5C28.3261 7.5 29.5979 8.02678 30.5355 8.96447C31.4732 9.90215 32 11.1739 32 12.5C32 13.8261 31.4732 15.0979 30.5355 16.0355C29.5979 16.9732 28.3261 17.5 27 17.5ZM27 5C22 5 17.73 8.11 16 12.5C17.73 16.89 22 20 27 20C32 20 36.27 16.89 38 12.5C36.27 8.11 32 5 27 5Z" fill="white"/>
+              </svg>
+              </span>
               
             </td>
           </tr>

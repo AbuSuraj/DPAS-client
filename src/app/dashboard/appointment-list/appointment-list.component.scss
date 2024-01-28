@@ -30,13 +30,25 @@
       .meeting-person{
         width: 294px !important;
       }
+      .table-header{
+        th{
+          font-size: 12px;
+          font-weight: 700px;
+        }
+      }
+      .created{
+        padding-left: 25px ;
+      }
+      .table-body{
+        tr{
+          font-size: 12px;
+          font-weight: 400;
+        }
+      }
     }
   }
 
 
-  .table-header{
-    padding: 20px !important;
-  }
   
   .appointment-table th, .appointment-table td {
     

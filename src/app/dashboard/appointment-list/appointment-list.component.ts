@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProxyService } from 'src/app/services/services-proxy/proxy.service';
-
 @Component({
   selector: 'app-appointment-list',
   templateUrl: './appointment-list.component.html',
