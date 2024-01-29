@@ -41,9 +41,13 @@ approveOrReject(stts: string){
   const status = stts;
   const data = {...this.appointment, status}
 this.service.updateAppointment(data).subscribe((res:any)=>{
-  console.log(res);
+  // console.log(res);
   this.toaster.success(`Appointment ${stts} successfully`, 'success');
   this.router.navigate(['/dashboard/visitor-online']);
-})
+},
+(error)=>{
+  this.toaster.success(`Failed to ${stts} Appointment`, 'error');
+}
+)
 }
 }
