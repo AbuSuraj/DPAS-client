@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProxyService } from 'src/app/services/services-proxy/proxy.service';
 import { DatePipe } from '@angular/common';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-details',
@@ -11,7 +12,7 @@ import { DatePipe } from '@angular/common';
 export class DetailsComponent implements OnInit {
  visitorId ='' ;
  appointment:any;
-  constructor(private activeRouter: ActivatedRoute, private service: ProxyService){}
+  constructor(private activeRouter: ActivatedRoute, private service: ProxyService, private router: Router, private toaster: ToastrService){}
 
 ngOnInit(): void {
  this.getId();
@@ -30,5 +31,19 @@ getAppointmentInfo(){
     console.log(data);
     
   })
+}
+
+updte(){
+
+}
+
+approveOrReject(stts: string){
+  const status = stts;
+  const data = {...this.appointment, status}
+this.service.updateAppointment(data).subscribe((res:any)=>{
+  console.log(res);
+  this.toaster.success(`Appointment ${stts} successfully`, 'success');
+  this.router.navigate(['/dashboard/visitor-online']);
+})
 }
 }
