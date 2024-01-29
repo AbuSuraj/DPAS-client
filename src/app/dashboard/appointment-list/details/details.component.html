@@ -90,7 +90,7 @@
     </div>
   </div>
   <div class="button-box">
-    <button class="update-btn" type="button" (click)="updte()">Update</button>
+    <button class="update-btn" type="button" [routerLink]="['/dashboard','update-appointment',appointment?.appointment_id]" (click)="updte()">Update</button>
     <button (click)="approveOrReject('Rejected')" class="reject-btn" type="button">Reject</button>
     <button (click)="approveOrReject('Accepted')" class="approve-btn" type="button">Approved</button>
   </div>

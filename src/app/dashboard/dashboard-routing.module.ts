@@ -14,6 +14,8 @@ const routes: Routes = [
     { path:'visitor-online', children:[
       {path:':id', component: DetailsComponent}
     ]},
+    {
+      path: 'update-appointment/:id', component: WalkinAppointmentComponent}
   ]},
 ];
 

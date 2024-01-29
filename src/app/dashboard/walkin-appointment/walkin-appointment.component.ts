@@ -1,6 +1,6 @@
 import { Component, ElementRef, HostListener, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ProxyService } from 'src/app/services/services-proxy/proxy.service';
 
@@ -18,6 +18,9 @@ export class WalkinAppointmentComponent implements OnInit {
   isDoctorDropdownOpen = false;
   isDropdownOpen = false;
   isSexDropdownOpen = false;
+  public id ='';
+ appointmentData:any;
+
   // Dropdown options
   problems: string[] = ['Malnutrition', 'Infectious Diseases', 'Maternal and Child Health', 'Non-Communicable Diseases'];
   departments: string[] = ['Medicine', 'Pediatrics', 'Ophthalmology', 'Orthopedics', 'Gynecology', 'EYE'];
@@ -30,10 +33,17 @@ export class WalkinAppointmentComponent implements OnInit {
   selectedDoctor = '';
   selectedSex = '';
 
-  constructor(private formBuilder: FormBuilder, private elementRef: ElementRef,private service: ProxyService, private toastr: ToastrService, private router: Router) { }
+  constructor(private formBuilder: FormBuilder, private elementRef: ElementRef,private service: ProxyService, private toastr: ToastrService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
       this.formInitialise();
+      this.id = this.activatedRoute.snapshot?.paramMap?.get("id")?? '' ;
+      console.log(this.id);
+      
+      if(this.id){
+        this.getPatchValue();
+      }
+      // this.id = parseInt(this.activatedRoute.snapshot.paramMap.get("id"))
   }
 
   formInitialise(){
@@ -58,6 +68,40 @@ export class WalkinAppointmentComponent implements OnInit {
       age: ['', Validators.required],
       weight: [''],
     });
+  }
+
+  getPatchValue(){
+      this.service.getAppointmentDetails(this.id).subscribe((data:any)=>{
+        this.appointmentData = data.appointmentDetails;
+        console.log( this.appointmentData);
+        this.selectedProblem = this.appointmentData.problem;
+        this.selectedDepartment =this.appointmentData.department;
+        this.selectedDoctor = this.appointmentData.doctor;
+        this.selectedSex = this.appointmentData.sex;
+
+        this.appointmentForm.patchValue({
+      problem: this.appointmentData.problem,
+      department: this.appointmentData.department,
+      doctor: this.appointmentData.doctor,
+      arrival_date: this.appointmentData.arrival_date,
+      arrival_time: this.appointmentData.arrival_time,
+      patient_name_english: this.appointmentData.patient_name_english,
+      patient_name_bangla: this.appointmentData.patient_name_bangla,
+      patient_father_name_english: this.appointmentData.patient_father_name_english,
+      patient_father_name_bangla: this.appointmentData.patient_father_name_bangla,
+      patient_mother_name_english: this.appointmentData.patient_mother_name_english,
+      patient_mother_name_bangla: this.appointmentData.patient_mother_name_bangla,
+      present_address: this.appointmentData.present_address,
+      permanent_address: this.appointmentData.permanent_address,
+      mobile_number:  this.appointmentData.mobile_number,
+      email: this.appointmentData.email,
+      nid_or_birth_certificate_no: this.appointmentData.nid_or_birth_certificate_no,
+      sex: this.appointmentData.sex,
+      age: this.appointmentData.age,
+      weight: this.appointmentData.weight,
+        })
+        
+      })
   }
 
   toggleProblemDropdown(): void {
@@ -125,14 +169,30 @@ export class WalkinAppointmentComponent implements OnInit {
     this.appointmentForm.markAllAsTouched();
     if(this.appointmentForm.invalid) return;
     console.log(this.appointmentForm.value);
-    this.service.createAppointment(this.appointmentForm.value).subscribe(res =>{
-      this.toastr.success('Apointment created successfully', 'Success');
-      this.router.navigate(['/dashboard/visitor-online']);
-    },
-    (error)=>{
-      console.error('failed', error);
-      this.toastr.error('Failed to create appointment', 'Login failed');
+
+    if(this.id){
+      const appointment_id = this.id;
+      const status = this.appointmentData.status;
+      this.service.updateAppointment({...this.appointmentForm.value,appointment_id, status}).subscribe(res =>{
+        this.toastr.success('Apointment updated successfully', 'Success');
+        this.router.navigate(['/dashboard/visitor-online']);
+      },
+      (error)=>{
+        console.error('failed', error);
+        this.toastr.error('Failed to update appointment', ' Error');
+      }
+      )
     }
-    )
+else {
+  this.service.createAppointment(this.appointmentForm.value).subscribe(res =>{
+    this.toastr.success('Apointment created successfully', 'Success');
+    this.router.navigate(['/dashboard/visitor-online']);
+  },
+  (error)=>{
+    console.error('failed', error);
+    this.toastr.error('Failed to create appointment', 'Login failed');
   }
+  )
+}
+}
 }
