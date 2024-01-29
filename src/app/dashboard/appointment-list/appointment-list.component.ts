@@ -43,8 +43,8 @@ ngOnInit(): void {
 fetchData(): void {
   this.service.getAppointments(this.searchKey, this.currentPage, this.pageSize)
     .subscribe((data: any) => {
-      this.appointments = data.appointments || [];
-      this.totalAppointments = data.totalAppointments || 0;
+      this.appointments = data.appointments ;
+      this.totalAppointments = data.totalAppointments;
       this.itemsLen = this.appointments.length
       this.calculateRange();
     });

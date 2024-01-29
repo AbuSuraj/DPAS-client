@@ -1,4 +1,4 @@
-<div class="appointment-container">
+<div  class="appointment-container">
   <div class="title-container">
     <h5>Appointment-list</h5>
     <div>
@@ -20,7 +20,7 @@
             <th >Action</th>
           </tr>
         </thead>
-        <tbody class="table-body">
+        <tbody *ngIf="appointments" class="table-body">
         
           <tr *ngFor="let appointment of appointments | paginate: {id:'server', itemsPerPage:5, currentPage:currentPage, totalItems:totalAppointments}">
             <td class="created" style="width: 130px;">{{ appointment.createdat | date: 'dd MMM yyyy - HH:mm:ss' }}  On</td>
@@ -40,6 +40,14 @@
             </td>
           </tr>
         </tbody>
+        <tr *ngIf="!appointments">
+          <td></td>
+          <td></td>
+          <td></td>
+          <h5 class="no-data">No Data Found</h5></tr>
+          <td></td>
+          <td></td>
+          <td></td>
       </table>
       <div class="pagination-container">
         <div>
