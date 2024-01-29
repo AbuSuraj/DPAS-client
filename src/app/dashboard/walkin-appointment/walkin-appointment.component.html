@@ -123,7 +123,7 @@
           />
         </div>
       </div>
-      <div class="arrivale-time"  [class.error]="appointmentForm.get('arrival_time')?.invalid && appointmentForm.get('arrival_time')?.touched">
+      <div class="input-box"  [class.error]="appointmentForm.get('arrival_time')?.invalid && appointmentForm.get('arrival_time')?.touched">
         <label class="label-text" for="arrival_time">Arrivale Time</label>
         <input
           class="input-group"
@@ -142,7 +142,7 @@
       <h5>Patient info</h5>
 
       <div class="row-box">
-        <div class="arrivale-time">
+        <div class="input-box">
           <label class="label-text" for="patient_name_english"
             >Name in English</label
           >
@@ -153,7 +153,7 @@
             placeholder="Enter name"
           />
         </div>
-        <div class="arrivale-time right-side-input">
+        <div class="input-box right-side-input">
           <label class="label-text" for="patient_name_bangla"
             >Name in Bangla</label
           >
@@ -166,7 +166,7 @@
         </div>
       </div>
       <div class="row-box">
-        <div class="arrivale-time">
+        <div class="input-box">
           <label class="label-text" for=" patient_father_name_english"
             >Father’s Name English</label
           >
@@ -177,7 +177,7 @@
             placeholder="Enter Father's Name"
           />
         </div>
-        <div class="arrivale-time right-side-input">
+        <div class="input-box right-side-input">
           <label class="label-text" for="patient_father_name_bangla"
             >Father’s Name Bangla</label
           >
@@ -190,18 +190,18 @@
         </div>
       </div>
       <div class="row-box">
-        <div class="arrivale-time">
+        <div class="input-box">
           <label class="label-text" for="patient_mother_name_english"
             >Mother’s Name English</label
           >
           <input
             class="input-group"
             type="text"
-            formControlName="patient_mother_name_english"
+            formControlName=" patient_mother_name_english"
             placeholder="Enter Mother's Name"
           />
         </div>
-        <div class="arrivale-time right-side-input">
+        <div class="input-box right-side-input">
           <label class="label-text" for="patient_mother_name_bangla"
             >Mother’s Name Bangla</label
           >
@@ -214,7 +214,7 @@
         </div>
       </div>
       <div>
-        <div>
+        <div class="input-box">
           <label class="label-text" for="present_address"
             >Present address</label
           >
@@ -227,7 +227,7 @@
         </div>
       </div>
       <div>
-        <div>
+        <div class="input-box">
           <label class="label-text" for="permanent_address"
             >Permanent address</label
           >
@@ -240,7 +240,7 @@
         </div>
       </div>
       <div class="row-box">
-        <div class="arrivale-time">
+        <div class="input-box">
           <label class="label-text" for="mobile_number">Mobile number *</label>
           <input
             class="input-group"
@@ -253,7 +253,7 @@
             Mobile Number is required.
           </div>
         </div>
-        <div class="arrivale-time right-side-input">
+        <div class="input-box right-side-input">
           <label class="label-text" for="email">Email</label>
           <input
             class="input-group"
@@ -319,7 +319,7 @@
         </div>
       </div>
       <div class="row-box">
-        <div class="arrivale-time">
+        <div class="input-box">
           <label class="label-text" for="age">Age *</label>
           <input
             class="input-group"
@@ -332,7 +332,7 @@
             Age is required.
           </div>
         </div>
-        <div class="arrivale-time right-side-input">
+        <div class="input-box right-side-input">
           <label class="label-text" for="weight">Weight</label>
           <input
             class="input-group"
