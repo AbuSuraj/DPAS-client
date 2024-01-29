@@ -17,4 +17,8 @@ export class AuthenticationService {
     this.loggedInSubject.next(value);
     localStorage.setItem('isLoggedIn', value ? 'true' : 'false');
   }
+
+  isLoggedIn(): boolean {
+    return this.loggedInSubject.value;
+  }
 }
