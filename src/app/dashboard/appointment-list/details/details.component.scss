@@ -99,4 +99,34 @@
 
     }
   }
-  
+  .button-box{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top:140px;
+
+    .update-btn, .reject-btn, .approve-btn{
+      width: 168px;
+      height: 54px;
+      border-radius: 30px;
+      color: #FFFFFF;
+      font-family: Inter;
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 24px;
+      letter-spacing: 0em;
+      margin-right:20px;
+    }
+
+    .update-btn{
+      background: grey;
+    }
+    .reject-btn{
+      background: #FD0000;
+ 
+    }
+    .approve-btn{ 
+      background:#5089FF;
+
+    }
+  }

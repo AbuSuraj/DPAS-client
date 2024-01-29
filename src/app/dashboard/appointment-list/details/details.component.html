@@ -1,91 +1,97 @@
-<div class="appointment-details-container">
-  <div><h5 class="header-title">Appointment Information</h5></div>
-  <div class="personal-details-container">
-    <div class="image-container">
-      <img
-        [src]="'../../../../assets/images/suraj.png'"
-        alt="Appointment Image"
-        class="appointment-image"
-      />
+<div class="details-box">
+  <div class="appointment-details-container">
+    <div><h5 class="header-title">Appointment Information</h5></div>
+    <div class="personal-details-container">
+      <div class="image-container">
+        <img
+          [src]="'../../../../assets/images/suraj.png'"
+          alt="Appointment Image"
+          class="appointment-image"
+        />
+      </div>
+        <div >
+          <div>
+              <h4>{{appointment?.patient_name_english}}</h4>
+          </div>
+          <div class="personal-details">
+              <div class="detail-item">
+                  <span class="detail-label">Mobile:</span>
+                  <span class="detail-value">{{appointment?.mobile_number}}</span>
+              </div>
+              <div class="detail-item">
+                  <span class="detail-label">Designation:</span>
+                  <span class="detail-value">Software Engineer</span>
+              </div>
+              <div class="detail-item">
+                  <span class="detail-label">Company:</span>
+                  <span class="detail-value">XYZ Corp</span>
+      
+              </div>
+          </div>
+        </div>
+      
+      <div class="contact-details">
+          <div></div>
+        <div class="detail-item">
+          <span class="detail-label">Address:</span>
+          <span class="detail-value">{{appointment?.present_address}}</span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">Mail:</span>
+          <span class="detail-value">{{appointment?.email}}</span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">NID:</span>
+          <span class="detail-value">{{appointment?.nid_or_birth_certificate_no}}</span>
+        </div>
+      </div>
     </div>
-      <div >
-        <div>
-            <h4>{{appointment?.patient_name_english}}</h4>
-        </div>
-        <div class="personal-details">
-            <div class="detail-item">
-                <span class="detail-label">Mobile:</span>
-                <span class="detail-value">{{appointment?.mobile_number}}</span>
-            </div>
-            <div class="detail-item">
-                <span class="detail-label">Designation:</span>
-                <span class="detail-value">Software Engineer</span>
-            </div>
-            <div class="detail-item">
-                <span class="detail-label">Company:</span>
-                <span class="detail-value">XYZ Corp</span>
-    
-            </div>
-        </div>
+    <div class="appointment-info-box">
+      <div>
+          <div>
+              <h6>Created on:</h6>
+              <p>{{appointment?.appointment_created_at | date: 'dd MMM yyyy - HH:mm:ss'}}</p>
+          </div>
+          <div>
+              <h6>Visitor ID:</h6>
+              <p>{{appointment?.appointment_id}}</p>
+          </div>
+          <div>
+              <h6>Department</h6>
+              <p>{{appointment?.department}}</p>
+          </div>
       </div>
-    
-    <div class="contact-details">
-        <div></div>
-      <div class="detail-item">
-        <span class="detail-label">Address:</span>
-        <span class="detail-value">{{appointment?.present_address}}</span>
+      
+      <div>
+          <div>
+              <h6>Meeting Person:</h6>
+              <p>{{appointment?.doctor}}</p>
+          </div>
+          <div>
+              <h6>Arrival Date:</h6>
+              <p>{{ appointment?.arrival_date  | date: 'dd/MM/yy' }}</p>
+          </div>
+          <div>
+              <h6>Arrival Time:</h6>
+              <p>{{'1970-01-01T' +appointment?.arrival_time | date: 'h:mm a'}}</p>
+          </div>
       </div>
-      <div class="detail-item">
-        <span class="detail-label">Mail:</span>
-        <span class="detail-value">{{appointment?.email}}</span>
+      <div>
+          <div>
+              <h6>Satus</h6>
+              <p>{{appointment?.status}}</p>
+          </div>
       </div>
-      <div class="detail-item">
-        <span class="detail-label">NID:</span>
-        <span class="detail-value">{{appointment?.nid_or_birth_certificate_no}}</span>
-      </div>
+    </div>
+  
+    <div class="pupose-box">
+      <h6>Purpose:</h6>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur maxime officiis itaque delectus repudiandae sit, molestias neque mollitia distinctio dolorem aspernatur deserunt, aliquid velit! Dolore earum rem iure, similique facere ipsa ullam, praesentium quam eveniet blanditiis dolores quod cum autem, dolor esse commodi. Ducimus delectus possimus pariatur. Eligendi quaerat laborum quidem. Mollitia maxime aspernatur animi nihil quia modi dolore quae, adipisci explicabo, quidem commodi ab ipsa ratione. In asperiores hic earum quod, ea repellendus doloremque consequatur autem mollitia quibusdam odit placeat dolores aliquam deserunt libero debitis voluptates officiis numquam perferendis nam est eaque ex molestias! Deleniti nisi ut est repellendus.</p>
     </div>
   </div>
-  <div class="appointment-info-box">
-    <div>
-        <div>
-            <h6>Created on:</h6>
-            <p>{{appointment?.appointment_created_at | date: 'dd MMM yyyy - HH:mm:ss'}}</p>
-        </div>
-        <div>
-            <h6>Visitor ID:</h6>
-            <p>{{appointment?.appointment_id}}</p>
-        </div>
-        <div>
-            <h6>Department</h6>
-            <p>{{appointment?.department}}</p>
-        </div>
-    </div>
-    
-    <div>
-        <div>
-            <h6>Meeting Person:</h6>
-            <p>{{appointment?.doctor}}</p>
-        </div>
-        <div>
-            <h6>Arrival Date:</h6>
-            <p>{{ appointment?.arrival_date  | date: 'dd/MM/yy' }}</p>
-        </div>
-        <div>
-            <h6>Arrival Time:</h6>
-            <p>{{'1970-01-01T' +appointment?.arrival_time | date: 'h:mm a'}}</p>
-        </div>
-    </div>
-    
-    <div>
-        <div>
-            <h6>Satus</h6>
-            <p>{{appointment?.status}}</p>
-        </div>
-    </div>
-  </div>
-
-  <div class="pupose-box">
-    <h6>Purpose:</h6>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur maxime officiis itaque delectus repudiandae sit, molestias neque mollitia distinctio dolorem aspernatur deserunt, aliquid velit! Dolore earum rem iure, similique facere ipsa ullam, praesentium quam eveniet blanditiis dolores quod cum autem, dolor esse commodi. Ducimus delectus possimus pariatur. Eligendi quaerat laborum quidem. Mollitia maxime aspernatur animi nihil quia modi dolore quae, adipisci explicabo, quidem commodi ab ipsa ratione. In asperiores hic earum quod, ea repellendus doloremque consequatur autem mollitia quibusdam odit placeat dolores aliquam deserunt libero debitis voluptates officiis numquam perferendis nam est eaque ex molestias! Deleniti nisi ut est repellendus.</p>
+  <div class="button-box">
+    <button class="update-btn" type="button">Update</button>
+    <button class="reject-btn" type="button">Reject</button>
+    <button class="approve-btn" type="button">Approved</button>
   </div>
 </div>
