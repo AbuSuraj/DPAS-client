@@ -1,0 +1,13 @@
+<div class="card-container">
+    <!-- First Row -->
+    <div class="card" *ngFor="let data of cardsData">
+      <div class="card-header">{{data.title}}</div>
+      <div class="card-content">
+        <img [src]="data.img" alt="Icon 1">
+        <span>{{data.quantity}}</span>
+      </div>
+      <div class="card-footer">View All</div>
+    </div>
+  
+  </div>
+  

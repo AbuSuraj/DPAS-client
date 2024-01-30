@@ -1,0 +1,69 @@
+<header class="app-header">
+  <div class="header-container">
+    <div class="logo-icon-container">
+      <div class="logo-container">
+        <img src="../../../../assets/images/logo.png" alt="Logo" />
+      </div>
+      <div *ngIf="isLoggedIn" class="icon-container">
+        <svg
+          width="40"
+          height="35"
+          viewBox="0 0 40 35"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0 0H40V4.375H0V0ZM0 15.3125H26.6667V19.6875H0V15.3125ZM0 30.625H40V35H0V30.625Z"
+            fill="white"
+          />
+        </svg>
+      </div>
+    </div>
+    <nav class="nav-links">
+      <a
+        *ngIf="!isLoggedIn"
+        routerLink="/"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        >HOME</a
+      >
+      <a
+        *ngIf="!isLoggedIn"
+        routerLink="/register"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        >REGISTRATION</a
+      >
+      <a
+        *ngIf="!isLoggedIn"
+        routerLink="/account/login"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        >SIGN IN</a
+      >
+      <a
+        *ngIf="!isLoggedIn"
+        routerLink="/make-appoinment"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        >MAKE APPOINTMENT</a
+      >
+      <a
+        *ngIf="!isLoggedIn"
+        routerLink="/about-us"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        >ABOUT US</a
+      >
+    </nav>
+    <div class="user-profile">
+      <div class="user-title">
+        <span class="user-name">Profile</span>
+        <span>Receptionist</span>
+      </div>
+      <div class="user-menu">
+        <div class="user-icon"></div>
+      </div>
+    </div>
+  </div>
+</header>

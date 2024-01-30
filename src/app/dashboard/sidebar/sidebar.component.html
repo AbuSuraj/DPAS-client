@@ -1,0 +1,38 @@
+<div class="menu-bar">
+    <li class="menu-item"  
+    routerLink="/dashboard/online-appointment"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }"  >
+      ONLINE APPOINTMENT
+    </li>
+    <li class="menu-item" routerLink="/dashboard/walkin-appointment"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }"  >
+      WALKIN APPOINTMENT
+    </li>
+    <li class="menu-item" routerLink="/dashboard/account"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }"  >
+      ACCOUNTS
+    </li>
+    <li class="menu-item" routerLink="/dashboard/profile-setting"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }"  >
+      PROFILE SETTING
+    </li>
+    <li class="menu-item"  [class.active]="isVisitorSelect"
+     >
+   <span (click)="toggleVisitor()">VISITOR APPOINTMENT</span> 
+    <a class="sub-menu-item" *ngIf="isVisitorSelect">
+      <span routerLink="/dashboard/visitor-online" class="online-appointment">ONLINE APPOINTMENT</span>
+      <span routerLink="/dashboard/visitor-physical"  class="physical-appointment">PHYSICAL APPOINTMENT</span>
+    </a>
+  </li>
+     
+    <li *ngIf="!isVisitorSelect" class="menu-item">
+      HOSPITAL ADMISSION
+    </li>
+    <li *ngIf="!isVisitorSelect" class="menu-item" (click)="logout()"  >
+      Logout
+    </li>
+  </div>

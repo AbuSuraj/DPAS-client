@@ -1,0 +1,59 @@
+/* dashboard-sidebar.component.scss */
+.menu-bar {
+    background: #5089FF;
+    width: 320px;
+    height: 1570px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+     border-top: 3px solid #FFFFFF;
+    .menu-item {
+      font-family: 'Inter';
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 22px;
+      letter-spacing: 0em;
+      text-align: left;
+      color: #fff;
+      margin-bottom: 16px;
+      cursor: pointer;
+      text-decoration: none;
+      list-style: none;
+      &.active{
+        color:#FFC02D !important;
+      }
+    }
+    .sub-menu-item{
+      font-family: 'Inter';
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 22px;
+      letter-spacing: 0em;
+      text-align: left;
+      color: #fff;
+      margin-bottom: 16px;
+      
+      text-decoration: none;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      margin-left: -20px;
+      padding-left: 68px;
+      background: #79A5FF;
+      width: 320px;
+      height: 102;
+      span{
+        padding: 15px 30px;
+        cursor: pointer;
+        //  .online-appointment{
+        //   padding: 22px 65px 19px 72px;
+        //  }
+      }
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .menu-bar{
+      height: 2490px;
+    }
+
+  }

@@ -1,0 +1,102 @@
+.appointment-container {
+    width: 1042px;
+    // height: 432px;
+    border: 1px solid #D8E5FF;
+    border-collapse: collapse;
+    box-shadow: 0px 4px 4px 0px #00000040;
+    margin: 45px 40px 0 38px;
+    border-radius: 20px;
+    
+    .title-container{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      background: #D8E5FF;
+      height: 83px;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+
+        .search-box{
+          width: 693px;
+          height: 47px;
+          border-radius: 20px;
+          border: 1px solid #777777;
+          padding: 10px 25px;
+        }
+    }
+
+    .appointment-table{
+      .meeting-person{
+        width: 294px !important;
+      }
+      .table-header{
+        th{
+          font-size: 12px;
+          font-weight: 700px;
+        }
+      }
+      .created{
+        padding-left: 25px ;
+      }
+      .table-body{
+        tr{
+          font-size: 12px;
+          font-weight: 400;
+        }
+        span{
+          cursor: pointer;
+        }
+      }
+
+      .no-data{
+       
+        margin: 10px auto;
+      
+      }
+    }
+
+    .pagination-container{
+      display: flex;
+      justify-content: end;
+      align-items: center;
+      margin-top: 20px;
+      font-size: 14px;
+      p{
+        font-size: 14px;
+        color: #777777;
+        margin-left: 10px;
+      }
+
+        select {
+          padding: 5px;
+          border-radius: 5px;
+          border: 1px solid #ccc;
+          cursor: pointer;
+          margin-bottom: 10px;
+          margin-left: 10px;
+        }
+       
+      }
+      
+    }
+ 
+
+
+  
+  .appointment-table th, .appointment-table td {
+    
+    padding: 8px;
+  }
+  
+  .appointment-table th {
+    // background-color: #f2f2f2;
+    width: 130px;
+    font-weight: bold;
+  }
+  
+  
+  .appointment-table tbody tr:hover {
+    background-color: #ddd;
+  }
+  
